@@ -1,6 +1,8 @@
 function codemusic(){
 
-	var code = document.getElementById("code").value;
+	clearError()
+
+	var code = document.getElementById('code').value;
 	console.log(code);
 
 	try{
@@ -12,5 +14,9 @@ function codemusic(){
 }
 
 function displayError(e){
-	document.getElementById("code-error").innerHTML = e;
+	document.getElementById('code-error').innerHTML = e;
+}
+
+function clearError(){
+	document.getElementById('code-error').innerHTML = null;
 }
