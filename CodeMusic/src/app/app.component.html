@@ -7,8 +7,8 @@
       </div>
   </div>
   <div class="row">
-      <h2 id="code-error" class="bg-danger"></h2>
+      <h2 id="code-error" class="bg-danger" *ngIf="displayError">{{displayError}}</h2>
   </div>
 </div>
 
-<script src="audiosynth.js" type="text/javascript"></script>
+
