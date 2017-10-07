@@ -63,9 +63,9 @@ CodeMusicInterpreter = {
 			if(noteString[1] !== '#'){
 				throw new Error('Note must be a letter A-G plus an optional sharp symbol (#)');
 			}
-			var note = noteString.slice(0,2).toUpperCase();
+			note = noteString.slice(0,2).toUpperCase();
 		} else {
-			var note = noteString[0].toUpperCase();
+			note = noteString[0].toUpperCase();
 		}
 
 		return {note: note, octave: octave};

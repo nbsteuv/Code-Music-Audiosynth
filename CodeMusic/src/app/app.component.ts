@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Provider} from '@angular/core';
 import {CodeMusicService} from './services/codemusic.service';
+import {Note} from './types/note.type';
 
 declare var Synth: any;
 
@@ -19,15 +20,22 @@ export class AppComponent {
   constructor(private CodeMusicInterpreter: CodeMusicService){}
 
   run(){
-    this.CodeMusicInterpreter.testMethod();
+
+    let play = this.play.bind(this);
+
     try{
       eval(this.code);
-      //CodeMusicInterpreter.runPlayListItems();
+      this.CodeMusicInterpreter.runPlayListItems();
     } catch(e){
       this.displayError = e;
-    }
+    };
+
   }
 
-
+  play(noteString: string, seconds: number){
+    let parsedNote = this.CodeMusicInterpreter.parseNote(noteString);
+    let note: Note = new Note(this.soundId, parsedNote.note, parsedNote.octave, seconds);
+    this.CodeMusicInterpreter.addToPlayList(note);
+  }
 
 }
