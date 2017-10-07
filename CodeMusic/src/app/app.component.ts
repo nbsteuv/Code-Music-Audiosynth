@@ -14,6 +14,7 @@ export class AppComponent {
 
   code: string;
   displayError: string;
+  soundId: number = 0;
 
   constructor(private CodeMusicInterpreter: CodeMusicService){}
 
