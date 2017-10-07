@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  code: string;
+
+  run(){
+    try{
+      eval(this.code);
+      //CodeMusicInterpreter.runPlayListItems();
+    } catch(e){
+      //displayError(e);
+      console.log(e);
+    }
+  }
+
 }
