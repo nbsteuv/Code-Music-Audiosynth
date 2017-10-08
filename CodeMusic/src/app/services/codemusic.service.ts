@@ -92,6 +92,10 @@ export class CodeMusicService{
 
     addToPlayList(playListItem: PlayListItem){
 		this.playList.push(playListItem);
-	}
+    }
+    
+    clearPlayList(){
+        this.playList = [];
+    }
 
 }

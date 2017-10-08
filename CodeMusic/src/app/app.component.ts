@@ -28,6 +28,7 @@ export class AppComponent {
     let playChord = this.playChord.bind(this);
 
     try{
+      this.CodeMusicInterpreter.clearPlayList();
       eval(this.code);
       this.CodeMusicInterpreter.runPlayListItems();
     } catch(e){
