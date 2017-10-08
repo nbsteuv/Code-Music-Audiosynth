@@ -2,10 +2,13 @@ import {Injectable} from '@angular/core';
 
 import {PlayListItem} from '../types/playlist-item.interface';
 import {Note} from '../types/note.type';
+import {Chord} from '../types/chord.type';
+import {ParsedNote} from '../types/parsed-note.type';
 
 @Injectable()
 export class CodeMusicService{
 
+    soundId: number = 0;
     playList: PlayListItem[] = [];
     octaveRange: number[] = [1, 8];
     noteRange: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
@@ -13,7 +16,7 @@ export class CodeMusicService{
     async runPlayListItems(){
         for(let i = 0; i < this.playList.length; i++){
             let playListItem: PlayListItem = this.playList[i];
-            playListItem.play();
+            playListItem.play(this.soundId);
             await this.wait(playListItem.seconds);
         }
     }
@@ -59,7 +62,32 @@ export class CodeMusicService{
 			note = noteString[0].toUpperCase();
 		}
 
-		return {note: note, octave: octave};
+        let parsedNote: ParsedNote = new ParsedNote(note, octave);
+        return parsedNote;
+    }
+
+    buildNote(noteString: string, seconds: number){
+        let parsedNote: ParsedNote = this.parseNote(noteString);
+        let note: Note = new Note(parsedNote.note, parsedNote.octave, seconds);
+        return note;
+    }
+
+    buildChord(noteArray: string[], seconds: number){
+        let parsedNoteArray: ParsedNote[] = [];
+        for(let i = 0; i < noteArray.length; i++){
+            try{
+                let noteString = noteArray[i];
+                let parsedNote: ParsedNote = this.parseNote(noteString);
+                parsedNoteArray.push(parsedNote);
+            } catch(e){
+                let noteNumber = i + 1;
+                let errorMessage = 'Problem in note ' + noteNumber + ' in chord -- ' + e;
+                throw new Error(errorMessage);
+            }
+        }
+
+        let chord: Chord = new Chord(parsedNoteArray, seconds);
+        return chord;
     }
 
     addToPlayList(playListItem: PlayListItem){

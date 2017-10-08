@@ -1,4 +1,4 @@
 export interface PlayListItem{
     seconds: number;
-    play(): void;
+    play(soundId: number): void;
 }

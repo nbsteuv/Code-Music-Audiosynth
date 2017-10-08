@@ -8,7 +8,7 @@ export class Rest implements PlayListItem{
         this.seconds = seconds;
     }
 
-    play(){
+    play(soundId: number){
         return;
     }
 }
