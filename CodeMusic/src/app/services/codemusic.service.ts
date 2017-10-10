@@ -4,19 +4,29 @@ import {PlayListItem} from '../types/playlist-item.interface';
 import {Note} from '../types/note.type';
 import {Chord} from '../types/chord.type';
 import {ParsedNote} from '../types/parsed-note.type';
+import {Sound} from '../types/sound.type';
 
 @Injectable()
 export class CodeMusicService{
 
-    soundId: number = 0;
+    selectedSound: Sound;
     playList: PlayListItem[] = [];
     octaveRange: number[] = [1, 8];
     noteRange: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+    sounds: Sound[] = [];
+    
+    constructor(){
+        this.sounds.push(new Sound(0, 'Piano', '/assets/images/piano.png'));
+        this.sounds.push(new Sound(1, 'Organ', '/assets/images/organ.png'));
+        this.sounds.push(new Sound(2, 'Guitar', '/assets/images/guitar.png'));
+        this.sounds.push(new Sound(3, 'EDM', '/assets/images/headphones.png'));
+        this.selectedSound = this.sounds[0];
+    }
     
     async runPlayListItems(){
         for(let i = 0; i < this.playList.length; i++){
             let playListItem: PlayListItem = this.playList[i];
-            playListItem.play(this.soundId);
+            playListItem.play(this.selectedSound.id);
             await this.wait(playListItem.seconds);
         }
     }
@@ -96,6 +106,10 @@ export class CodeMusicService{
     
     clearPlayList(){
         this.playList = [];
+    }
+
+    setSelectedSound(sound){
+        this.selectedSound = sound;
     }
 
 }

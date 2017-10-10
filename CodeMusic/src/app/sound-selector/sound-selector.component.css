@@ -1,0 +1,10 @@
+.sound-type{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.selected{
+    background-color: #efefef;
+}

@@ -5,6 +5,7 @@ import {Note} from '../types/note.type';
 import {Rest} from '../types/rest.type';
 import {Chord} from '../types/chord.type';
 import {ParsedNote} from '../types/parsed-note.type';
+import {Sound} from '../types/sound.type';
 
 @Component({
     selector: 'code-music',
@@ -15,8 +16,13 @@ export class CodeMusic{
 
     code: string;
     displayError: string;
+    sounds: Sound[];
+    selectedSound: Sound;
 
-    constructor(private CodeMusicInterpreter: CodeMusicService){}
+    constructor(private CodeMusicInterpreter: CodeMusicService){
+        this.sounds = CodeMusicInterpreter.sounds;
+        this.selectedSound = CodeMusicInterpreter.selectedSound;
+    }
 
     run(){
         let play = this.play.bind(this);
@@ -45,6 +51,12 @@ export class CodeMusic{
     playChord(noteArray: string[], seconds: number){
         let chord: Chord = this.CodeMusicInterpreter.buildChord(noteArray, seconds);
         this.CodeMusicInterpreter.addToPlayList(chord);
+    }
+
+    onSoundSelected(sound: Sound){
+        this.CodeMusicInterpreter.setSelectedSound(sound);
+        this.selectedSound = sound;
+        console.log(sound);
     }
 
 }
