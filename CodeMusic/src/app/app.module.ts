@@ -9,6 +9,7 @@ import {FunctionBuilder} from './function-builder/function-builder.component';
 import {FunctionNameSelector} from './function-name-selector/function-name-selector.component';
 import {FunctionNoteSelector} from './function-note-selector/function-note-selector.component';
 import {FunctionSecondsSelector} from './function-seconds-selector/function-seconds-selector.component';
+import {FunctionDisplay} from './function-display/function-display.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {FunctionSecondsSelector} from './function-seconds-selector/function-seco
     , FunctionNameSelector
     , FunctionNoteSelector
     , FunctionSecondsSelector
+    , FunctionDisplay
   ],
   imports: [
     BrowserModule
