@@ -5,12 +5,20 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {CodeMusic} from './codemusic/codemusic.component';
 import {SoundSelector} from './sound-selector/sound-selector.component';
+import {FunctionBuilder} from './function-builder/function-builder.component';
+import {FunctionNameSelector} from './function-name-selector/function-name-selector.component';
+import {FunctionNoteSelector} from './function-note-selector/function-note-selector.component';
+import {FunctionSecondsSelector} from './function-seconds-selector/function-seconds-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent
     , CodeMusic
     , SoundSelector
+    , FunctionBuilder
+    , FunctionNameSelector
+    , FunctionNoteSelector
+    , FunctionSecondsSelector
   ],
   imports: [
     BrowserModule

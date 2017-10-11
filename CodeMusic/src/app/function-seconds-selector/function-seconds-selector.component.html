@@ -1,0 +1,6 @@
+<div class="col-sm-3">
+    <ul>
+        <li *ngFor="let functionSeconds of functionSecondsChoices" (click)="selectSeconds(functionSeconds)" 
+        [ngClass]="{bold: functionSeconds === selectedFunctionSeconds}">{{functionSeconds}}</li>
+    </ul>
+</div>

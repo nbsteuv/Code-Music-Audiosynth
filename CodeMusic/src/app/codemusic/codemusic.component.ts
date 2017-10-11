@@ -56,7 +56,6 @@ export class CodeMusic{
     onSoundSelected(sound: Sound){
         this.CodeMusicInterpreter.setSelectedSound(sound);
         this.selectedSound = sound;
-        console.log(sound);
     }
 
 }

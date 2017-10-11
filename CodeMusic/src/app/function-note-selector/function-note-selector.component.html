@@ -1,0 +1,6 @@
+<div class="col-sm-6">
+    <ul>
+        <li *ngFor="let functionNote of functionNoteChoices" (click)="selectNote(functionNote)" 
+        [ngClass]="{bold: selectedFunctionNotes.includes(functionNote)}">{{functionNote}}</li>
+    </ul>
+</div>

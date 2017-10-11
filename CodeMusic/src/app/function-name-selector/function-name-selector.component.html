@@ -1,0 +1,6 @@
+<div class="col-sm-3">
+    <ul>
+        <li *ngFor="let functionName of functionNameChoices" (click)="selectName(functionName)" 
+        [ngClass]="{bold: functionName === selectedFunctionName}">{{functionName}}</li>
+    </ul>
+</div>

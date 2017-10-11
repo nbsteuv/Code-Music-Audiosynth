@@ -8,6 +8,7 @@ import {Sound} from '../types/sound.type';
     styleUrls: ['./sound-selector.component.css']
 })
 export class SoundSelector{
+    
     @Output() soundSelected: EventEmitter<Sound> = new EventEmitter<Sound>();
     @Input() sounds: Sound[];
     @Input() selectedSound: Sound;
