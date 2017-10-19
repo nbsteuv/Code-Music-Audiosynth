@@ -10,6 +10,7 @@ export class FunctionNoteSelector{
     @Output() functionNotesSelected: EventEmitter<string[]> = new EventEmitter<string[]>();
     @Input() functionNoteChoices: string[];
     @Input() selectedFunctionNotes: string[];
+    @Input() multiple: boolean;
 
     selectedNotes: string[] = [];
 
@@ -19,12 +20,17 @@ export class FunctionNoteSelector{
     }
 
     toggleNote(note: string){
-        let index = this.selectedNotes.indexOf(note);
-        if(index == -1){
-            this.selectedNotes.push(note);
-        } else{
-            this.selectedNotes.splice(index, 1);
+        if(this.multiple){
+            let index = this.selectedNotes.indexOf(note);
+            if(index == -1){
+                this.selectedNotes.push(note);
+            } else{
+                this.selectedNotes.splice(index, 1);
+            }
+        } else {
+            this.selectedNotes = [note];
         }
+        
     }
 
 }

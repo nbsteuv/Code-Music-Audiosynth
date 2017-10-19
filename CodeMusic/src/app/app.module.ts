@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {CodeMusic} from './codemusic/codemusic.component';
 import {SoundSelector} from './sound-selector/sound-selector.component';
 import {FunctionBuilder} from './function-builder/function-builder.component';
-import {FunctionNameSelector} from './function-name-selector/function-name-selector.component';
+import {FunctionTypeSelector} from './function-type-selector/function-type-selector.component';
 import {FunctionNoteSelector} from './function-note-selector/function-note-selector.component';
 import {FunctionSecondsSelector} from './function-seconds-selector/function-seconds-selector.component';
 import {FunctionDisplay} from './function-display/function-display.component';
@@ -17,7 +17,7 @@ import {FunctionDisplay} from './function-display/function-display.component';
     , CodeMusic
     , SoundSelector
     , FunctionBuilder
-    , FunctionNameSelector
+    , FunctionTypeSelector
     , FunctionNoteSelector
     , FunctionSecondsSelector
     , FunctionDisplay

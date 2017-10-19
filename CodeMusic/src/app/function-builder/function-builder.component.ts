@@ -9,44 +9,72 @@ import {FunctionBuilderService} from '../services/function-builder.service';
 })
 export class FunctionBuilder implements OnInit{
 
-    functionNameChoices: string[];
+    functionTypeChoices: string[];
     functionNoteChoices: string[];
     functionSecondsChoices: number[];
-    selectedName: string;
+    selectedType: string;
     selectedNotes: string[] = [];
     selectedSeconds: number;
+    allowMultipleNotes: boolean;
+    showNoteComponent: boolean;
     functionString: string;
 
     constructor(private functionBuilderService: FunctionBuilderService){}
 
     ngOnInit(){
-        this.functionNameChoices = this.functionBuilderService.getFunctionNameChoices();
+        this.functionTypeChoices = this.functionBuilderService.getFunctionTypeChoices();
         this.functionNoteChoices = this.functionBuilderService.getfunctionNoteChoices();
         this.functionSecondsChoices = this.functionBuilderService.getfunctionSecondChoices();
     }
     
     generate(){
-        if( this.selectedName != null && (this.selectedNotes != null || this.selectedName == 'rest') && this.selectedSeconds != null){
-            let functionString: string = this.functionBuilderService.generate(this.selectedName, this.selectedNotes, this.selectedSeconds);
+        if( this.selectedType != null 
+            && (
+                (this.selectedNotes != null  && this.selectedNotes.length > 0) || this.selectedType == 'Rest'
+                ) 
+            && this.selectedSeconds != null){
+            let functionString: string = this.functionBuilderService.generate(this.selectedType, this.selectedNotes, this.selectedSeconds);
             this.functionString = functionString;
         } else {
             this.functionString = null;
         }
     }
 
-    onFunctionNameSelected(functionName: string){
-        this.selectedName = functionName;
-        this.generate();
+    onFunctionTypeSelected(functionType: string){
+        this.selectedType = functionType;
+        this.onSelectionChange();
     }
 
     onFunctionNotesSelected(functionNotes: string[]){
         this.selectedNotes = functionNotes;
-        this.generate();
+        this.onSelectionChange();
     }
 
     onFunctionSecondsSelected(functionSeconds: number){
         this.selectedSeconds = functionSeconds;
+        this.onSelectionChange();
+    }
+
+    onSelectionChange(){
         this.generate();
+        this.configureComponents();
+    }
+
+    configureComponents(){
+        this.allowMultipleNotes = this.selectedType == 'Chord' ? true : false;
+        this.showNoteComponent = this.selectedType == 'Rest' ? false : true;  
+        let newSelectedNotesLength: number;
+        switch(this.selectedType){
+            case 'Note':
+                newSelectedNotesLength = this.selectedNotes.length > 0 ? 1 : 0;
+                break;
+            case 'Rest':
+                newSelectedNotesLength = 0;
+                break;
+            default:
+                newSelectedNotesLength = this.selectedNotes.length;
+        }
+        this.selectedNotes.length = newSelectedNotesLength;
     }
 
 }

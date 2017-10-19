@@ -1,8 +1,8 @@
 <div class="row">
-    <function-name-selector [functionNameChoices]="functionNameChoices" [selectedFunctionName]="selectedName"
-    (functionNameSelected)="onFunctionNameSelected($event)"></function-name-selector>
+    <function-type-selector [functionTypeChoices]="functionTypeChoices" [selectedFunctionType]="selectedType"
+    (functionTypeSelected)="onFunctionTypeSelected($event)"></function-type-selector>
     <function-note-selector [functionNoteChoices]="functionNoteChoices" [selectedFunctionNotes]="selectedNotes"
-    (functionNotesSelected)="onFunctionNotesSelected($event)"></function-note-selector>
+    [multiple]="allowMultipleNotes" (functionNotesSelected)="onFunctionNotesSelected($event)"></function-note-selector>
     <function-seconds-selector [functionSecondsChoices]="functionSecondsChoices" [selectedFunctionSeconds]="selectedSeconds"
     (functionSecondsSelected)="onFunctionSecondsSelected($event)"></function-seconds-selector>
 </div>

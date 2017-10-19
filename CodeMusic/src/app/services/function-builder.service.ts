@@ -3,31 +3,30 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class FunctionBuilderService{
 
-    generate(name: string, notes: string[], seconds: number){
-        let isChord: boolean = notes.length > 1;
-        let openBracket: string = isChord ? '[' : null;
-        let functionString: string = name + '(' + openBracket;
-
-        for(let i = 0; i < notes.length; i++){
-            let comma = i > 0 ? ', ' : null;
-            let noteString: string = comma + '"' + notes[i] + '"';
-            functionString += noteString;
+    generate(type: string, notes: string[], seconds: number){
+        let functionString: string;
+        switch(type){
+            case 'Note':
+                functionString = 'play("' + notes[0] + '", ' + seconds + ');';
+                return functionString;
+            case 'Rest':
+                functionString = 'rest(' + seconds + ');';
+                return functionString;
+            case 'Chord':
+                let noteString: string = '["' + notes[0] + '"';
+                for(let i = 1; i < notes.length; i++){
+                    noteString += ', "' + notes[i] + '"';
+                }
+                noteString += ']';
+                functionString = 'playChord(' + noteString + ', ' + seconds + ');';
+                return functionString;
+            default:
+                return '';
         }
-
-        let closeBracket: string = isChord ? ']' : null;
-        functionString += closeBracket;
-
-        let secondsComma: string = notes.length > 0 ? ', ' : null;
-        let secondString: string = secondsComma + seconds;
-        functionString += secondString;
-
-        functionString += ');';
-
-        return functionString;
     }
 
-    getFunctionNameChoices(){
-        return ['play', 'rest', 'playChord'];
+    getFunctionTypeChoices(){
+        return ['Note', 'Rest', 'Chord'];
     }
 
     getfunctionNoteChoices(){
