@@ -1,6 +1,8 @@
-<div class="col-sm-3">
-    <ul>
-        <li *ngFor="let functionSeconds of functionSecondsChoices" (click)="selectSeconds(functionSeconds)" 
-        [ngClass]="{bold: functionSeconds === selectedFunctionSeconds}">{{functionSeconds}}</li>
-    </ul>
+<div class="col-sm-4 col-centered">
+    <div class="col-sm-3 col-centered function-seconds" *ngFor="let functionSeconds of functionSecondsChoices" (click)="selectSeconds(functionSeconds)"
+        [ngClass]="{selected: functionSeconds === selectedFunctionSeconds}">
+        <img *ngIf="noteImageType" [src]="functionSeconds.noteImgSrc">
+        <img *ngIf="!noteImageType" [src]="functionSeconds.restImgSrc">
+        <h4>{{functionSeconds.name}}</h4>
+    </div>
 </div>

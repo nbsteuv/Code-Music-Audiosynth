@@ -1,3 +1,19 @@
 .bold{
     font-weight: bold;
 }
+
+.col-centered{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.function-type{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.selected{
+    background-color: #efefef;
+}

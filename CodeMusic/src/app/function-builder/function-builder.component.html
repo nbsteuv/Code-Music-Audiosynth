@@ -1,11 +1,13 @@
 <div class="row">
-    <function-type-selector [functionTypeChoices]="functionTypeChoices" [selectedFunctionType]="selectedType"
-    (functionTypeSelected)="onFunctionTypeSelected($event)"></function-type-selector>
     <function-note-selector [functionNoteChoices]="functionNoteChoices" [selectedFunctionNotes]="selectedNotes"
     [multiple]="allowMultipleNotes" (functionNotesSelected)="onFunctionNotesSelected($event)"></function-note-selector>
-    <function-seconds-selector [functionSecondsChoices]="functionSecondsChoices" [selectedFunctionSeconds]="selectedSeconds"
-    (functionSecondsSelected)="onFunctionSecondsSelected($event)"></function-seconds-selector>
 </div>
 <div class="row">
+    <function-type-selector [functionTypeChoices]="functionTypeChoices" [selectedFunctionType]="selectedType"
+    (functionTypeSelected)="onFunctionTypeSelected($event)"></function-type-selector>
+
     <function-display [functionString]="functionString"></function-display>
+    
+    <function-seconds-selector [functionSecondsChoices]="functionSecondsChoices" [selectedFunctionSeconds]="selectedSeconds"
+    [noteImageType]="noteImageType" (functionSecondsSelected)="onFunctionSecondsSelected($event)"></function-seconds-selector>
 </div>

@@ -30,7 +30,5 @@ export class FunctionNoteSelector{
         } else {
             this.selectedNotes = [note];
         }
-        
     }
-
 }

@@ -1,5 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
+import {FunctionSeconds} from '../types/function-seconds.type';
+
 @Component({
     selector: 'function-seconds-selector',
     templateUrl: './function-seconds-selector.component.html',
@@ -7,11 +9,12 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 })
 export class FunctionSecondsSelector{
 
-    @Output() functionSecondsSelected: EventEmitter<number> = new EventEmitter<number>();
-    @Input() functionSecondsChoices: number[];
-    @Input() selectedFunctionSeconds: number;
+    @Output() functionSecondsSelected: EventEmitter<FunctionSeconds> = new EventEmitter<FunctionSeconds>();
+    @Input() functionSecondsChoices: FunctionSeconds[];
+    @Input() selectedFunctionSeconds: FunctionSeconds;
+    @Input() noteImageType: boolean;
 
-    selectSeconds(selectedSeconds: number){
+    selectSeconds(selectedSeconds: FunctionSeconds){
         this.functionSecondsSelected.emit(selectedSeconds);
     }
 
