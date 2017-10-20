@@ -9,12 +9,12 @@
                 id="{{cssId}}" ></li>
         </ol>
         <ol id="rightHalf">
-                <li *ngFor="let functionNote of rightSideNotes" 
-                    [ngClass]="{ivory: functionNote.cssId.indexOf('s') === -1
-                    , ebony: functionNote.cssId.indexOf('s') !== -1
-                    , selected: selectedFunctionNotes.includes(functionNote)}" 
-                    (click)="selectNote(functionNote)"
-                    id="{{cssId}}" ></li>
-            </ol>
+            <li *ngFor="let functionNote of rightSideNotes" 
+                [ngClass]="{ivory: functionNote.cssId.indexOf('s') === -1
+                , ebony: functionNote.cssId.indexOf('s') !== -1
+                , selected: selectedFunctionNotes.includes(functionNote)}" 
+                (click)="selectNote(functionNote)"
+                id="{{cssId}}" ></li>
+        </ol>
     </div>
 </div>
