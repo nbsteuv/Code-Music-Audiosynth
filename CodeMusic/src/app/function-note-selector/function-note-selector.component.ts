@@ -1,25 +1,29 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+
+import {FunctionNote} from '../types/function-note.type';
 
 @Component({
     selector: 'function-note-selector',
     templateUrl: './function-note-selector.component.html',
     styleUrls: ['./function-note-selector.component.css']
 })
-export class FunctionNoteSelector{
+export class FunctionNoteSelector implements OnChanges{
 
-    @Output() functionNotesSelected: EventEmitter<string[]> = new EventEmitter<string[]>();
-    @Input() functionNoteChoices: string[];
-    @Input() selectedFunctionNotes: string[];
+    @Output() functionNotesSelected: EventEmitter<FunctionNote[]> = new EventEmitter<FunctionNote[]>();
+    @Input() functionNoteChoices: FunctionNote[];
+    @Input() selectedFunctionNotes: FunctionNote[];
     @Input() multiple: boolean;
 
-    selectedNotes: string[] = [];
+    selectedNotes: FunctionNote[] = [];
+    leftSideNotes: FunctionNote[];
+    rightSideNotes: FunctionNote[];
 
-    selectNote(selectedNote: string){
+    selectNote(selectedNote: FunctionNote){
         this.toggleNote(selectedNote);
         this.functionNotesSelected.emit(this.selectedNotes);
     }
 
-    toggleNote(note: string){
+    toggleNote(note: FunctionNote){
         if(this.multiple){
             let index = this.selectedNotes.indexOf(note);
             if(index == -1){
@@ -31,4 +35,19 @@ export class FunctionNoteSelector{
             this.selectedNotes = [note];
         }
     }
+
+    ngOnChanges(){
+        if(this.functionNoteChoices){
+            this.setFunctionNoteSides();
+        }
+    }
+
+    setFunctionNoteSides(){
+        this.leftSideNotes = this.functionNoteChoices.filter(functionNote => functionNote.cssId.indexOf('1') === -1);
+        this.rightSideNotes = this.functionNoteChoices.filter(functionNote => functionNote.cssId.indexOf('1') !== -1);
+    }
+
+
+
+
 }

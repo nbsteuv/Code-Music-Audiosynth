@@ -1,3 +1,75 @@
+/*----------------------------------------------------------------
+
+Virtual Piano from Ren Geers (CodePen)
+See attributions page
+
+-----------------------------------------------------------------*/
+  
+ol {
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+#leftHalf {
+    margin-right: -20px;
+}
+
+#rightHalf {
+    margin-left: -20px;
+}
+
+li {
+    position: relative;
+    background-color: #FFFFF0;
+    z-index: 1;
+    padding: 320px 30px 100px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    margin-right: -1px;
+    margin-left: -2px;
+    border-radius: 0px 0px 7px 7px;
+    color: transparent;
+    box-shadow: -3px 7px 4px #2a2a2a;
+}
+
+li:active {
+    box-shadow: -1px 2px 3px #2a2a2a;
+}
+
+.ebony {
+    position: absolute;
+    z-index: 2;
+    background-color:#1d1d1d;
+    padding: 230px 12px 12px;
+    top: 0px;
+    margin-left: -31px;
+    box-shadow: none;
+    border-width: 0px 6px 12px;
+    border-color: #000;
+    border-bottom-color: #2a2a2a;
+}
+
+.ebony:active {
+    border-bottom-width: 8px;
+    box-shadow: none;
+}
+
+#C {
+    border-top-left-radius: 7px;
+}
+
+#B1 {
+    border-top-right-radius: 7px;
+}
+
+/*----------------------------------------------------------------
+
+/Virtual Piano from Ren Geers (CodePen)
+
+-----------------------------------------------------------------*/
+
 .bold{
     font-weight: bold;
 }
@@ -5,4 +77,13 @@
 .col-centered{
     margin: 0 auto;
     text-align: center;
+}
+
+.selected{
+    background-color: #ccdfff;
+}
+
+.selected.ebony{
+    border-color: #7a869b;
+    border-bottom-color: #dbe7fa;
 }

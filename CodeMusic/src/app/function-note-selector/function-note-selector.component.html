@@ -1,6 +1,25 @@
 <div class="col-sm-12 col-centered">
-    <ul>
+    <!--<ul>
         <li *ngFor="let functionNote of functionNoteChoices" (click)="selectNote(functionNote)" 
         [ngClass]="{bold: selectedFunctionNotes.includes(functionNote)}">{{functionNote}}</li>
-    </ul>
+    </ul>-->
+    <div id="piano">
+        <ol id="leftHalf">
+            <li *ngFor="let functionNote of leftSideNotes" 
+                [ngClass]="{ivory: functionNote.cssId.indexOf('s') === -1
+                , ebony: functionNote.cssId.indexOf('s') !== -1
+                , selected: selectedFunctionNotes.includes(functionNote)}" 
+                (click)="selectNote(functionNote)"
+                id="{{cssId}}" ></li>
+        </ol>
+
+        <ol id="rightHalf">
+                <li *ngFor="let functionNote of rightSideNotes" 
+                    [ngClass]="{ivory: functionNote.cssId.indexOf('s') === -1
+                    , ebony: functionNote.cssId.indexOf('s') !== -1
+                    , selected: selectedFunctionNotes.includes(functionNote)}" 
+                    (click)="selectNote(functionNote)"
+                    id="{{cssId}}" ></li>
+            </ol>
+    </div>
 </div>
