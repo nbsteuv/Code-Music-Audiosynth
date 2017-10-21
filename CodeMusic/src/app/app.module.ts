@@ -8,6 +8,7 @@ import {NavBar} from './navbar/navbar.component';
 import {Home} from './home/home.component';
 import {ErrorNotFound} from './error-not-found/error-not-found.component';
 import {CodeMusic} from './codemusic/codemusic.component';
+import {FunctionInstructionsTable} from './function-instructions-table/function-instructions-table.component';
 import {SoundSelector} from './sound-selector/sound-selector.component';
 import {FunctionBuilder} from './function-builder/function-builder.component';
 import {FunctionTypeSelector} from './function-type-selector/function-type-selector.component';
@@ -22,6 +23,7 @@ import {FunctionDisplay} from './function-display/function-display.component';
     , Home
     , ErrorNotFound
     , CodeMusic
+    , FunctionInstructionsTable
     , SoundSelector
     , FunctionBuilder
     , FunctionTypeSelector

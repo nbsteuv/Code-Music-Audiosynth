@@ -1,54 +1,5 @@
 <div class="row">
-    <div class="col-sm-12">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">To build a...</th>
-                    <th scope="col">Follow the form...</th>
-                    <th scope="col">Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Note</th>
-                    <td>
-                        <span class="function">play(
-                            <span class="argument1">"NoteName"</span>,
-                            <span class="argument2">Seconds </span>);</span>
-                    </td>
-                    <td>
-                        <span class="function">play(
-                            <span class="argument1">"C4"</span>,
-                            <span class="argument2">2 </span>);</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Chord</th>
-                    <td>
-                        <span class="function">playChord(
-                            <span class="argument1">["NoteName1", "NoteName2", etc]</span>,
-                            <span class="argument2">Seconds </span>);</span>
-                    </td>
-                    <td>
-                        <span class="function">playChord(
-                            <span class="argument1">["C4", "E4", "G4"]</span>,
-                            <span class="argument2">2 </span>);</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Rest</th>
-                    <td>
-                        <span class="function">rest(
-                            <span class="argument1">Seconds </span>);</span>
-                    </td>
-                    <td>
-                        <span class="function">rest(
-                            <span class="argument1">2 </span>);</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <function-instructions-table></function-instructions-table>
     <div class="col-sm-12">
         <div class="col-sm-6">
             <textarea id="code" rows="20" cols="70" [(ngModel)]="code"></textarea>
