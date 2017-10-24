@@ -20,7 +20,7 @@ export class FunctionBuilder implements OnInit{
     selectedSeconds: FunctionSeconds;
     allowMultipleNotes: boolean;
     showNoteComponent: boolean;
-    noteImageType: boolean;
+    noteImageType: boolean = true;
     functionString: string;
 
     constructor(private functionBuilderService: FunctionBuilderService){}

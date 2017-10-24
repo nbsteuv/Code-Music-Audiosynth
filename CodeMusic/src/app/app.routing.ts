@@ -8,7 +8,7 @@ import {FunctionBuilder} from './function-builder/function-builder.component';
 
 @NgModule({
     imports: [RouterModule.forRoot([
-        {path: '', component: Home},
+        {path: '', component: CodeMusic},
         {path: 'code', component: CodeMusic},
         {path: 'generator', component: FunctionBuilder},
         {path: '**', component: ErrorNotFound}
