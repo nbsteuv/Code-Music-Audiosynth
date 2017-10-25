@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import{CodeMusicService} from '../services/codemusic.service';
 import {Note} from '../types/note.type';
@@ -12,16 +12,18 @@ import {Sound} from '../types/sound.type';
     templateUrl: './codemusic.component.html',
     styleUrls: ['./codemusic.component.css']
 })
-export class CodeMusicComponent{
+export class CodeMusicComponent implements OnInit{
 
     code: string;
     displayError: string;
     sounds: Sound[];
     selectedSound: Sound;
 
-    constructor(private codeMusicService: CodeMusicService){
-        this.sounds = codeMusicService.sounds;
-        this.selectedSound = codeMusicService.selectedSound;
+    constructor(private codeMusicService: CodeMusicService){}
+
+    ngOnInit(){
+        this.sounds = this.codeMusicService.sounds;
+        this.selectedSound = this.codeMusicService.selectedSound;
     }
 
     run(){

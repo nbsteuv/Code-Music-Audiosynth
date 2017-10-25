@@ -16,6 +16,10 @@ export class CodeMusicService{
     sounds: Sound[] = [];
     
     constructor(){
+        this.init();
+    }
+
+    init(){
         this.sounds.push(new Sound(0, 'Piano', '/assets/images/piano.png'));
         this.sounds.push(new Sound(1, 'Organ', '/assets/images/organ.png'));
         this.sounds.push(new Sound(2, 'Guitar', '/assets/images/guitar.png'));
