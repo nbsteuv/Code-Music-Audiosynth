@@ -4,4 +4,4 @@ import {Component} from '@angular/core';
     templateUrl: './error-not-found.component.html',
     styleUrls: ['./error-not-found.component.css']
 })
-export class ErrorNotFound{}
+export class ErrorNotFoundComponent{}

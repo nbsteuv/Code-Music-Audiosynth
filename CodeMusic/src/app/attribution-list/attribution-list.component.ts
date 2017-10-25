@@ -4,4 +4,4 @@ import {Component} from '@angular/core';
     templateUrl: './attribution-list.component.html',
     styleUrls: ['./attribution-list.component.css']
 })
-export class AttributionList{}
+export class AttributionListComponent{}

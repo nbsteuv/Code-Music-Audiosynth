@@ -10,7 +10,7 @@ import {FunctionNote} from '../types/function-note.type';
     templateUrl: './function-builder.component.html',
     styleUrls: ['./function-builder.component.css']
 })
-export class FunctionBuilder implements OnInit{
+export class FunctionBuilderComponent implements OnInit{
 
     functionTypeChoices: FunctionType[];
     functionNoteChoices: FunctionNote[];

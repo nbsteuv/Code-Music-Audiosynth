@@ -5,4 +5,4 @@ import {Component} from '@angular/core';
     templateUrl: './function-instructions-table.component.html',
     styleUrls: ['./function-instructions-table.component.css']
 })
-export class FunctionInstructionsTable{}
+export class FunctionInstructionsTableComponent{}

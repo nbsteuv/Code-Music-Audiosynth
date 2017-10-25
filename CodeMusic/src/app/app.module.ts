@@ -4,34 +4,34 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app.routing';
 import {AppComponent} from './app.component';
-import {NavBar} from './navbar/navbar.component';
-import {Home} from './home/home.component';
-import {ErrorNotFound} from './error-not-found/error-not-found.component';
-import {CodeMusic} from './codemusic/codemusic.component';
-import {FunctionInstructionsTable} from './function-instructions-table/function-instructions-table.component';
-import {SoundSelector} from './sound-selector/sound-selector.component';
-import {FunctionBuilder} from './function-builder/function-builder.component';
-import {FunctionTypeSelector} from './function-type-selector/function-type-selector.component';
-import {FunctionNoteSelector} from './function-note-selector/function-note-selector.component';
-import {FunctionSecondsSelector} from './function-seconds-selector/function-seconds-selector.component';
-import {FunctionDisplay} from './function-display/function-display.component';
-import {AttributionList} from './attribution-list/attribution-list.component';
+import {NavBarComponent} from './navbar/navbar.component';
+import {HomeComponent} from './home/home.component';
+import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
+import {CodeMusicComponent} from './codemusic/codemusic.component';
+import {FunctionInstructionsTableComponent} from './function-instructions-table/function-instructions-table.component';
+import {SoundSelectorComponent} from './sound-selector/sound-selector.component';
+import {FunctionBuilderComponent} from './function-builder/function-builder.component';
+import {FunctionTypeSelectorComponent} from './function-type-selector/function-type-selector.component';
+import {FunctionNoteSelectorComponent} from './function-note-selector/function-note-selector.component';
+import {FunctionSecondsSelectorComponent} from './function-seconds-selector/function-seconds-selector.component';
+import {FunctionDisplayComponent} from './function-display/function-display.component';
+import {AttributionListComponent} from './attribution-list/attribution-list.component';
 
 @NgModule({
   declarations: [
     AppComponent
-    , NavBar
-    , Home
-    , ErrorNotFound
-    , CodeMusic
-    , FunctionInstructionsTable
-    , SoundSelector
-    , FunctionBuilder
-    , FunctionTypeSelector
-    , FunctionNoteSelector
-    , FunctionSecondsSelector
-    , FunctionDisplay
-    , AttributionList
+    , NavBarComponent
+    , HomeComponent
+    , ErrorNotFoundComponent
+    , CodeMusicComponent
+    , FunctionInstructionsTableComponent
+    , SoundSelectorComponent
+    , FunctionBuilderComponent
+    , FunctionTypeSelectorComponent
+    , FunctionNoteSelectorComponent
+    , FunctionSecondsSelectorComponent
+    , FunctionDisplayComponent
+    , AttributionListComponent
   ],
   imports: [
     BrowserModule

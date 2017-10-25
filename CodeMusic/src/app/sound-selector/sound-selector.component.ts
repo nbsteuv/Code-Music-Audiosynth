@@ -7,7 +7,7 @@ import {Sound} from '../types/sound.type';
     templateUrl: './sound-selector.component.html',
     styleUrls: ['./sound-selector.component.css']
 })
-export class SoundSelector{
+export class SoundSelectorComponent{
     
     @Output() soundSelected: EventEmitter<Sound> = new EventEmitter<Sound>();
     @Input() sounds: Sound[];

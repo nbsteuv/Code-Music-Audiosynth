@@ -7,7 +7,7 @@ import {FunctionType} from '../types/function-type.type';
     templateUrl: './function-type-selector.component.html',
     styleUrls: ['./function-type-selector.component.css']
 })
-export class FunctionTypeSelector{
+export class FunctionTypeSelectorComponent{
 
     @Output() functionTypeSelected: EventEmitter<FunctionType> = new EventEmitter<FunctionType>();
     @Input() functionTypeChoices: FunctionType[];

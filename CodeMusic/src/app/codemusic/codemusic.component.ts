@@ -12,16 +12,16 @@ import {Sound} from '../types/sound.type';
     templateUrl: './codemusic.component.html',
     styleUrls: ['./codemusic.component.css']
 })
-export class CodeMusic{
+export class CodeMusicComponent{
 
     code: string;
     displayError: string;
     sounds: Sound[];
     selectedSound: Sound;
 
-    constructor(private CodeMusicInterpreter: CodeMusicService){
-        this.sounds = CodeMusicInterpreter.sounds;
-        this.selectedSound = CodeMusicInterpreter.selectedSound;
+    constructor(private codeMusicService: CodeMusicService){
+        this.sounds = codeMusicService.sounds;
+        this.selectedSound = codeMusicService.selectedSound;
     }
 
     run(){
@@ -30,31 +30,31 @@ export class CodeMusic{
         let playChord = this.playChord.bind(this);
         
         try{
-            this.CodeMusicInterpreter.clearPlayList();
+            this.codeMusicService.clearPlayList();
             eval(this.code);
-            this.CodeMusicInterpreter.runPlayListItems();
+            this.codeMusicService.runPlayListItems();
         } catch(e){
             this.displayError = e;
         }; 
     }
         
     play(noteString: string, seconds: number){
-        let note: Note = this.CodeMusicInterpreter.buildNote(noteString, seconds);
-        this.CodeMusicInterpreter.addToPlayList(note);
+        let note: Note = this.codeMusicService.buildNote(noteString, seconds);
+        this.codeMusicService.addToPlayList(note);
     }
         
     rest(seconds: number){
         let rest: Rest = new Rest(seconds);
-        this.CodeMusicInterpreter.addToPlayList(rest);
+        this.codeMusicService.addToPlayList(rest);
     }
         
     playChord(noteArray: string[], seconds: number){
-        let chord: Chord = this.CodeMusicInterpreter.buildChord(noteArray, seconds);
-        this.CodeMusicInterpreter.addToPlayList(chord);
+        let chord: Chord = this.codeMusicService.buildChord(noteArray, seconds);
+        this.codeMusicService.addToPlayList(chord);
     }
 
     onSoundSelected(sound: Sound){
-        this.CodeMusicInterpreter.setSelectedSound(sound);
+        this.codeMusicService.setSelectedSound(sound);
         this.selectedSound = sound;
     }
 

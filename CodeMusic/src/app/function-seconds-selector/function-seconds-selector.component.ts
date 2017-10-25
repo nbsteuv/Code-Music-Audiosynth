@@ -7,7 +7,7 @@ import {FunctionSeconds} from '../types/function-seconds.type';
     templateUrl: './function-seconds-selector.component.html',
     styleUrls: ['./function-seconds-selector.component.css']
 })
-export class FunctionSecondsSelector{
+export class FunctionSecondsSelectorComponent{
 
     @Output() functionSecondsSelected: EventEmitter<FunctionSeconds> = new EventEmitter<FunctionSeconds>();
     @Input() functionSecondsChoices: FunctionSeconds[];

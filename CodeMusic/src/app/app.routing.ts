@@ -1,19 +1,19 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import {Home} from './home/home.component';
-import {ErrorNotFound} from './error-not-found/error-not-found.component';
-import {CodeMusic} from './codemusic/codemusic.component';
-import {FunctionBuilder} from './function-builder/function-builder.component';
-import {AttributionList} from './attribution-list/attribution-list.component';
+import {HomeComponent} from './home/home.component';
+import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
+import {CodeMusicComponent} from './codemusic/codemusic.component';
+import {FunctionBuilderComponent} from './function-builder/function-builder.component';
+import {AttributionListComponent} from './attribution-list/attribution-list.component';
 
 @NgModule({
     imports: [RouterModule.forRoot([
-        {path: '', component: CodeMusic},
-        {path: 'code', component: CodeMusic},
-        {path: 'generator', component: FunctionBuilder},
-        {path: 'attributions', component: AttributionList},
-        {path: '**', component: ErrorNotFound}
+        {path: '', component: CodeMusicComponent},
+        {path: 'code', component: CodeMusicComponent},
+        {path: 'generator', component: FunctionBuilderComponent},
+        {path: 'attributions', component: AttributionListComponent},
+        {path: '**', component: ErrorNotFoundComponent}
     ])],
     exports: [RouterModule]
 })

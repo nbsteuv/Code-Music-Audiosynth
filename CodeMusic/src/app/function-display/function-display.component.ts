@@ -5,6 +5,6 @@ import {Component, Input} from '@angular/core';
     templateUrl: './function-display.component.html',
     styleUrls: ['./function-display.component.css']
 })
-export class FunctionDisplay{
+export class FunctionDisplayComponent{
     @Input() functionString: string;
 }

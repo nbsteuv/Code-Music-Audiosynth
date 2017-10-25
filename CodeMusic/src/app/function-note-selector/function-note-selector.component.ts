@@ -7,7 +7,7 @@ import {FunctionNote} from '../types/function-note.type';
     templateUrl: './function-note-selector.component.html',
     styleUrls: ['./function-note-selector.component.css']
 })
-export class FunctionNoteSelector implements OnChanges{
+export class FunctionNoteSelectorComponent implements OnChanges{
 
     @Output() functionNotesSelected: EventEmitter<FunctionNote[]> = new EventEmitter<FunctionNote[]>();
     @Input() functionNoteChoices: FunctionNote[];
