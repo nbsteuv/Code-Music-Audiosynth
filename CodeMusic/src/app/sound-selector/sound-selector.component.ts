@@ -13,7 +13,7 @@ export class SoundSelectorComponent{
     @Input() sounds: Sound[];
     @Input() selectedSound: Sound;
 
-    selectSound(selectedSound: Sound){
+    selectSound(selectedSound: Sound): void{
         this.soundSelected.emit(selectedSound);
     }
 

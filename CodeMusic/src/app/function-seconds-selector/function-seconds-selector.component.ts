@@ -14,7 +14,7 @@ export class FunctionSecondsSelectorComponent{
     @Input() selectedFunctionSeconds: FunctionSeconds;
     @Input() noteImageType: boolean;
 
-    selectSeconds(selectedSeconds: FunctionSeconds){
+    selectSeconds(selectedSeconds: FunctionSeconds): void{
         this.functionSecondsSelected.emit(selectedSeconds);
     }
 

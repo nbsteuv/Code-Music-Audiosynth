@@ -15,7 +15,7 @@ export class FunctionBuilderService{
         this.init();
     }
 
-    init(){
+    init(): void{
         this.functionTypeChoices = [
             new FunctionType('Note', 'Note', '/assets/images/quarter-note.png'),
             new FunctionType('Chord', 'Chord','/assets/images/chord.png'),
@@ -54,7 +54,7 @@ export class FunctionBuilderService{
         ];
     }
 
-    generate(type: string, notes: string[], seconds: number){
+    generate(type: string, notes: string[], seconds: number): string{
         let functionString: string;
         switch(type){
             case 'Note':
@@ -76,15 +76,15 @@ export class FunctionBuilderService{
         }
     }
 
-    getFunctionTypeChoices(){
+    getFunctionTypeChoices(): FunctionType[]{
         return this.functionTypeChoices;
     }
 
-    getfunctionNoteChoices(){
+    getfunctionNoteChoices(): FunctionNote[]{
         return this.functionNoteChoices;
     }
 
-    getfunctionSecondChoices(){
+    getfunctionSecondChoices(): FunctionSeconds[]{
         return this.functionSecondsChoices;
     }
 

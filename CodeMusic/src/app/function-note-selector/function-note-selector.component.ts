@@ -18,12 +18,12 @@ export class FunctionNoteSelectorComponent implements OnChanges{
     leftSideNotes: FunctionNote[];
     rightSideNotes: FunctionNote[];
 
-    selectNote(selectedNote: FunctionNote){
+    selectNote(selectedNote: FunctionNote): void{
         this.toggleNote(selectedNote);
         this.functionNotesSelected.emit(this.selectedNotes);
     }
 
-    toggleNote(note: FunctionNote){
+    toggleNote(note: FunctionNote): void{
         if(this.multiple){
             let index = this.selectedNotes.indexOf(note);
             if(index == -1){
@@ -36,13 +36,13 @@ export class FunctionNoteSelectorComponent implements OnChanges{
         }
     }
 
-    ngOnChanges(){
+    ngOnChanges(): void{
         if(this.functionNoteChoices){
             this.setFunctionNoteSides();
         }
     }
 
-    setFunctionNoteSides(){
+    setFunctionNoteSides(): void{
         this.leftSideNotes = this.functionNoteChoices.filter(functionNote => functionNote.cssId.indexOf('1') === -1);
         this.rightSideNotes = this.functionNoteChoices.filter(functionNote => functionNote.cssId.indexOf('1') !== -1);
     }

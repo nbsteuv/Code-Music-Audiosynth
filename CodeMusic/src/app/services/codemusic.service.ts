@@ -19,7 +19,7 @@ export class CodeMusicService{
         this.init();
     }
 
-    init(){
+    init(): void{
         this.sounds.push(new Sound(0, 'Piano', '/assets/images/piano.png'));
         this.sounds.push(new Sound(1, 'Organ', '/assets/images/organ.png'));
         this.sounds.push(new Sound(2, 'Guitar', '/assets/images/guitar.png'));
@@ -40,7 +40,7 @@ export class CodeMusicService{
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    parseNote(noteString: string){
+    parseNote(noteString: string): ParsedNote{
 		//Validate note string length
 		if(noteString.length > 3){
 			throw new Error('The note cannot be more than 3 characters long and must include a note and octave');
@@ -80,13 +80,13 @@ export class CodeMusicService{
         return parsedNote;
     }
 
-    buildNote(noteString: string, seconds: number){
+    buildNote(noteString: string, seconds: number): Note{
         let parsedNote: ParsedNote = this.parseNote(noteString);
         let note: Note = new Note(parsedNote.note, parsedNote.octave, seconds);
         return note;
     }
 
-    buildChord(noteArray: string[], seconds: number){
+    buildChord(noteArray: string[], seconds: number): Chord{
         let parsedNoteArray: ParsedNote[] = [];
         for(let i = 0; i < noteArray.length; i++){
             try{
@@ -104,15 +104,15 @@ export class CodeMusicService{
         return chord;
     }
 
-    addToPlayList(playListItem: PlayListItem){
+    addToPlayList(playListItem: PlayListItem): void{
 		this.playList.push(playListItem);
     }
     
-    clearPlayList(){
+    clearPlayList(): void{
         this.playList = [];
     }
 
-    setSelectedSound(sound){
+    setSelectedSound(sound): void{
         this.selectedSound = sound;
     }
 

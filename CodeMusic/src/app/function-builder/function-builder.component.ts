@@ -25,13 +25,13 @@ export class FunctionBuilderComponent implements OnInit{
 
     constructor(private functionBuilderService: FunctionBuilderService){}
 
-    ngOnInit(){
+    ngOnInit(): void{
         this.functionTypeChoices = this.functionBuilderService.getFunctionTypeChoices();
         this.functionNoteChoices = this.functionBuilderService.getfunctionNoteChoices();
         this.functionSecondsChoices = this.functionBuilderService.getfunctionSecondChoices();
     }
     
-    generate(){
+    generate(): void{
         if( this.selectedType != null 
             && (
                 (this.selectedNotes != null  && this.selectedNotes.length > 0) || this.selectedType.value == 'Rest'
@@ -45,27 +45,27 @@ export class FunctionBuilderComponent implements OnInit{
         }
     }
 
-    onFunctionTypeSelected(functionType: FunctionType){
+    onFunctionTypeSelected(functionType: FunctionType): void{
         this.selectedType = functionType;
         this.onSelectionChange();
     }
 
-    onFunctionNotesSelected(functionNotes: FunctionNote[]){
+    onFunctionNotesSelected(functionNotes: FunctionNote[]): void{
         this.selectedNotes = functionNotes;
         this.onSelectionChange();
     }
 
-    onFunctionSecondsSelected(functionSeconds: FunctionSeconds){
+    onFunctionSecondsSelected(functionSeconds: FunctionSeconds): void{
         this.selectedSeconds = functionSeconds;
         this.onSelectionChange();
     }
 
-    onSelectionChange(){
+    onSelectionChange(): void{
         this.generate();
         this.configureComponents();
     }
 
-    configureComponents(){
+    configureComponents(): void{
         if(this.selectedType){
             this.allowMultipleNotes = this.selectedType.value == 'Chord' ? true : false;
             this.showNoteComponent = this.selectedType.value == 'Rest' ? false : true;  

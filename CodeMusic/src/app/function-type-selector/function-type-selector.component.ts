@@ -13,7 +13,7 @@ export class FunctionTypeSelectorComponent{
     @Input() functionTypeChoices: FunctionType[];
     @Input() selectedFunctionType: FunctionType;
 
-    selectName(selectedType: FunctionType){
+    selectName(selectedType: FunctionType): void{
         this.functionTypeSelected.emit(selectedType);
     }
 

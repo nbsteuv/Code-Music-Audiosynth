@@ -21,12 +21,12 @@ export class CodeMusicComponent implements OnInit{
 
     constructor(private codeMusicService: CodeMusicService){}
 
-    ngOnInit(){
+    ngOnInit(): void{
         this.sounds = this.codeMusicService.sounds;
         this.selectedSound = this.codeMusicService.selectedSound;
     }
 
-    run(){
+    run(): void{
         let play = this.play.bind(this);
         let rest = this.rest.bind(this);
         let playChord = this.playChord.bind(this);
@@ -40,22 +40,22 @@ export class CodeMusicComponent implements OnInit{
         }; 
     }
         
-    play(noteString: string, seconds: number){
+    play(noteString: string, seconds: number): void{
         let note: Note = this.codeMusicService.buildNote(noteString, seconds);
         this.codeMusicService.addToPlayList(note);
     }
         
-    rest(seconds: number){
+    rest(seconds: number): void{
         let rest: Rest = new Rest(seconds);
         this.codeMusicService.addToPlayList(rest);
     }
         
-    playChord(noteArray: string[], seconds: number){
+    playChord(noteArray: string[], seconds: number): void{
         let chord: Chord = this.codeMusicService.buildChord(noteArray, seconds);
         this.codeMusicService.addToPlayList(chord);
     }
 
-    onSoundSelected(sound: Sound){
+    onSoundSelected(sound: Sound): void{
         this.codeMusicService.setSelectedSound(sound);
         this.selectedSound = sound;
     }
