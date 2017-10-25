@@ -15,6 +15,7 @@ import {FunctionTypeSelector} from './function-type-selector/function-type-selec
 import {FunctionNoteSelector} from './function-note-selector/function-note-selector.component';
 import {FunctionSecondsSelector} from './function-seconds-selector/function-seconds-selector.component';
 import {FunctionDisplay} from './function-display/function-display.component';
+import {AttributionList} from './attribution-list/attribution-list.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {FunctionDisplay} from './function-display/function-display.component';
     , FunctionNoteSelector
     , FunctionSecondsSelector
     , FunctionDisplay
+    , AttributionList
   ],
   imports: [
     BrowserModule
