@@ -1,3 +1,11 @@
 .button-container{
     text-align: center;
 }
+
+.btn-huge{
+    width: 95%;
+    height: 90px;
+    vertical-align: middle;
+    line-height: 75px;
+    font-size: 3em;
+}
